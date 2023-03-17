@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>btrif.com</title>
+</head>
+
+<body>
+<button id="btn" style="background-color: salmon">Button</button>
+
+<!--<script src="toggle_button1.js"></script>-->
+
+<!--JAVASCRIPT-->
+
+<script>
+
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', onClick)
+
+    function onClick() {
+        const backgroundColor = btn.style.backgroundColor;
+
+        if (backgroundColor === 'salmon') {
+            btn.style.backgroundColor = 'green';
+
+// 👇️ optionally change text color
+// btn.style.color = 'white';
+        } else if (backgroundColor === "green") {
+            btn.style.backgroundColor = 'salmon';
+
+// 👇️ optionally change text color
+// btn.style.color = 'blue';
+        } else {
+            btn.style.backgroundColor = 'salmon';
+        }
+
+    };
+
+</script>
+</body>
+</html>

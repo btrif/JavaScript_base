@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+
+<div id="main">
+    <h1>Changing square</h1>
+<!--    <input type="text" id="single_button" onclick= "changeBoxColor();" >-->
+    <button id="simple_button" style="background-color: salmon"></button>
+
+
+    <br><br>
+
+
+
+
+    <h2>Second box</h2>
+    <button id="second_box"></button>
+    <br><br>
+    <button id="btn" onclick="changeColor();">
+        Change box color
+    </button>
+
+
+</div>
+
+
+<script>
+
+    // https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+
+    const simple_button = document.getElementById('simple_button');
+    simple_button.addEventListener('click', changeBoxColor )
+
+    function changeBoxColor() {
+        const backgroundColor = simple_button.style.backgroundColor;
+
+        if (backgroundColor == "coral") {
+            simple_button.textContent = "X";
+            simple_button.style.backgroundColor = "yellow";
+
+
+        } else {
+            simple_button.style.backgroundColor = "coral";
+            simple_button.textContent = "0";
+
+        }
+    };
+
+
+    //Second Box but with separate button
+
+    var box = document.getElementById("second_box");
+    box.style.backgroundColor = "green";
+
+
+
+    function changeColor() {
+
+        if (box.style.backgroundColor == "blue") {
+            box.style.backgroundColor = "red";
+            box.textContent = "X";
+        } else {
+            box.style.backgroundColor = "blue";
+            box.textContent = "O";
+        }
+    }
+
+</script>
+
+
+<style>
+/* CSS Code */
+/* Heading */
+h1 {
+    color: orangered;
+    font-size: 25px;
+}
+
+h2 {
+    color: aqua;
+    font-size: 25px;
+}
+
+
+
+/* 3*3 Grid */
+#simple_button {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border: 1px solid gray;
+    border-radius: 6px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#main {
+    text-align: center;
+}
+
+
+#second_box {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border: 1px solid gray;
+    border-radius: 36px;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+</style>
+
+</body>
+</html>
