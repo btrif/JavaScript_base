@@ -1,0 +1,15 @@
+<html>
+<body>
+<div id="button-container"></div>
+<button onclick="myFunction(4)">Create Button</button>
+<script>
+    function myFunction(e){
+        for(let i = 0; i< e; i++){
+            let newBtn = document.createElement('button');
+            newBtn.innerText="Click me";
+            document.querySelector('#button-container').appendChild(newBtn);
+        }
+    }
+</script>
+</body>
+</html>

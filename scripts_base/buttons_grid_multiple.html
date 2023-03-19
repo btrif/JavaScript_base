@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid Maze Table</title>
+
+<body>
+
+
+<div id="main">
+    <h1>Changing square</h1>
+    <button id="simple_button" ></button>
+    <br><br>
+
+</div>
+
+<br>
+<h1>Dynamic Box</h1>
+
+<div id="square_box">
+    <br><br>
+
+
+    <script>
+
+        /////////           THE Grid Table              /////////////
+
+        var totalRows = 2;
+        var cellsInRow = 2;
+        var min = 1;
+        var max = 10;
+
+        function drawTable() {
+            // get the reference for the body
+            let square = document.getElementById('square_box');
+
+            // creates a <table> element
+            let tbl = document.createElement("table");
+
+            // creating rows
+            for (var r = 0; r < totalRows; r++) {
+                let row = document.createElement("tr");
+
+                // create cells in row
+                for (var c = 0; c < cellsInRow; c++) {
+                    let button = document.createElement('button');
+                    let td = document.createElement("td");
+
+                    button.innerText='buy';
+
+                    let cellText = document.createTextNode(5);
+
+                    // td.appendChild(cellText);
+
+                    td.appendChild(button);
+
+                    row.appendChild(td);
+                }
+                tbl.appendChild(row); // add the row to the end of the table body
+            }
+
+            square.appendChild(tbl);            // appends <table> into <square_box>
+        }
+
+        window.onload = drawTable;
+
+
+    </script>
+
+</div>
+
+
+
+<script>                // JAVASCRIPT
+
+    // SOURCE : https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+
+    const simple_button = document.getElementById('simple_button');
+    simple_button.addEventListener('click', changeBoxColor );
+    simple_button.style.backgroundColor = "cyan";
+
+    function changeBoxColor() {
+        const backgroundColor = simple_button.style.backgroundColor;
+
+
+        if (backgroundColor == "coral") {
+            simple_button.textContent = "X";
+            simple_button.style.backgroundColor = "yellow";
+            console.log(5 + 6);
+
+
+        } else {
+            simple_button.style.backgroundColor = "coral";
+            simple_button.textContent = "0";
+
+        }
+    };
+
+
+
+</script>
+
+
+<style>                     /* CSS */
+    /* CSS Code */
+    /* Heading */
+    h1 {
+        color: orangered;
+        font-size: 25px;
+        text-align: center;
+        background-color: antiquewhite;
+    }
+
+    h2 {
+        color: aqua;
+        font-size: 25px;
+    }
+
+
+
+/* 3*3 Grid */
+#simple_button {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border: 1px solid gray;
+    border-radius: 6px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#main {
+    text-align: center;
+
+}
+
+
+#square_box {
+    margin:10px;
+    font-size:1.25em;
+    text-align: center;
+}
+
+table {
+    border-collapse:collapse;
+    border:5px solid #7f7f7f;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+td {
+    border:3px solid #115698;
+    width:50px;height:50px;
+    text-align:center;
+    color: lightseagreen;
+    background-color: lightyellow;
+}
+
+
+
+</style>
+
+</body>
+</html>

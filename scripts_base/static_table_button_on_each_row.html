@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASDF</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>Soap</td>
+        <td>good for babies</td>
+        <td>75</td>
+    </tr>
+
+    <tr>
+        <td>Milk</td>
+        <td>manufactured</td>
+        <td>100</td>
+    </tr>
+
+    <tr>
+        <td>Rice</td>
+        <td>red rice 1kg pack</td>
+        <td>130</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<script>
+    let tr = document.querySelectorAll("table tbody tr");
+
+    Array.from(tr).forEach(function(trArray) {
+        let button = document.createElement("button");
+        let td = document.createElement("td");
+        button.innerText = "buy";
+        button.className = "btn_buy";
+        td.append(button);
+        trArray.append(td);
+    });
+</script>
+
+
+
+</body>
+</html>

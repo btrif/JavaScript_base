@@ -31,17 +31,20 @@
 
 <script>
 
-    // https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+    // SOURCE : https://www.w3schools.com/js/js_htmldom_eventlistener.asp
 
     const simple_button = document.getElementById('simple_button');
-    simple_button.addEventListener('click', changeBoxColor )
+    simple_button.addEventListener('click', changeBoxColor );
+    simple_button.style.backgroundColor = "cyan";
 
     function changeBoxColor() {
         const backgroundColor = simple_button.style.backgroundColor;
 
+
         if (backgroundColor == "coral") {
             simple_button.textContent = "X";
             simple_button.style.backgroundColor = "yellow";
+            console.log(5 + 6);
 
 
         } else {
@@ -50,6 +53,7 @@
 
         }
     };
+
 
 
     //Second Box but with separate button
