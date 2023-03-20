@@ -17,14 +17,13 @@
 <h1>Dynamic Box</h1>
 
 <div id="square_box">
-    <br><br>
 
 
     <script>
 
         /////////           THE Grid Table              /////////////
-        var totalRows = 4;
-        var cellsInRow = 4;
+        var totalRows = 26;
+        var cellsInRow = 32;
 
         function drawTable() {
             // get the reference for the body
@@ -43,20 +42,20 @@
                     let wonderfulButton = document.createElement('button');
                     text_id = r.toString(10).concat(c);
                     wonderfulButton.id = text_id;
-                    wonderfulButton.innerText = text_id;
+                    wonderfulButton.innerText = "#";
                     // wonderfulButton.className = "everest";
 
 
                     //STYLE
-                    wonderfulButton.style.height = "40px";
-                    wonderfulButton.style.width = "40px";
-                    wonderfulButton.style.backgroundColor = "darkslategray";
-                    wonderfulButton.style.borderRadius = "12px";
-                    // wonderfulButton.style.border = "1px solid gray";
+                    wonderfulButton.style.height = "32px";
+                    wonderfulButton.style.width = "32px";
+                    wonderfulButton.style.backgroundColor = "coral";
+                    wonderfulButton.style.borderRadius = "1px";
+                    wonderfulButton.style.border = "1px solid gray";
 
 
 
-                    wonderfulButton.addEventListener('click', function onClick(event) {
+                    wonderfulButton.addEventListener('mouseover', function onClick(event) {
                         const backgroundColor = wonderfulButton.style.backgroundColor;
 
                         if (backgroundColor == "coral") {
@@ -67,10 +66,6 @@
                             wonderfulButton.textContent = "#";
                         }
                     });
-
-
-                    // wonderfulButton.addEventListener('click', wonderfulColorChange);
-                    // wonderfulButton.addEventListener('click', drawTable);               // adding more tables, Interesting :)
 
                     td.appendChild(wonderfulButton);
                     row.appendChild(td);
@@ -148,22 +143,6 @@
     text-align: center;
 }
 
-#wonderfulButton {
-    width: 80px;
-    height: 80px;
-    border: 1px solid gray;
-    border-radius: 12px;
-    margin: auto;
-    font-size: 20px;
-    color: darkslategray;
-}
-
-
-
-#main {
-    text-align: center;
-
-}
 
 
 #square_box {
@@ -181,8 +160,9 @@ table {
 }
 
 td {
-    border:2px solid #115698;
-    width:50px;height:50px;
+    border:0.5px solid #115698;
+    width:30px;
+    height:30px;
     text-align:center;
     color: lightseagreen;
     background-color: lightyellow;
