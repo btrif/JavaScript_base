@@ -8,7 +8,7 @@
 
 <div id="main">
     <h1>Changing square</h1>
-    <button id="simple_button" ></button>
+    <button id="one_single_button" >Run Baby</button>
     <br><br>
 
 </div>
@@ -42,18 +42,24 @@
 
                 // create cells in row
                 for (var c = 0; c < cellsInRow; c++) {
-                    let button = document.createElement('button');
                     let td = document.createElement("td");
+                    let wonderfulButton = document.createElement('button');
 
-                    button.innerText='buy';
 
-                    let cellText = document.createTextNode(5);
 
-                    // td.appendChild(cellText);
+                    let p1 = 5;
+                    let p2 = 7;
 
-                    td.appendChild(button);
+                    wonderfulButton.innerText=myFunction(3);
+                    wonderfulButton.addEventListener('click',  function () {
+                        myFunction2(p1, p2);
+                    });
 
+                    td.appendChild(wonderfulButton);
                     row.appendChild(td);
+
+
+
                 }
                 tbl.appendChild(row); // add the row to the end of the table body
             }
@@ -74,28 +80,40 @@
 
     // SOURCE : https://www.w3schools.com/js/js_htmldom_eventlistener.asp
 
-    const simple_button = document.getElementById('simple_button');
-    simple_button.addEventListener('click', changeBoxColor );
-    simple_button.style.backgroundColor = "cyan";
+    const bogdan_button = document.getElementById('one_single_button');
+    bogdan_button.addEventListener('click', changeBoxColor );
 
     function changeBoxColor() {
-        const backgroundColor = simple_button.style.backgroundColor;
-
+        const backgroundColor = bogdan_button.style.backgroundColor;
 
         if (backgroundColor == "coral") {
-            simple_button.textContent = "X";
-            simple_button.style.backgroundColor = "yellow";
-            console.log(5 + 6);
-
-
+            bogdan_button.textContent = "X";
+            bogdan_button.style.backgroundColor = "yellow";
         } else {
-            simple_button.style.backgroundColor = "coral";
-            simple_button.textContent = "0";
+            bogdan_button.style.backgroundColor = "coral";
+            bogdan_button.textContent = "0";
+        }
+    };
 
+    function myFunction(x, y = 10) {
+        return x + y;
+    }
+
+    function wonderfulColorChange() {
+
+        if (wonderfulButton.style.backgroundColor == "coral") {
+            wonderfulButton.textContent = "X";
+            wonderfulButton.style.backgroundColor = "yellow";
+        } else {
+            wonderfulButton.style.backgroundColor = "coral";
+            wonderfulButton.textContent = "0";
         }
     };
 
 
+    function myFunction2(a, b) {
+        return a*b;
+    }
 
 </script>
 
@@ -118,7 +136,7 @@
 
 
 /* 3*3 Grid */
-#simple_button {
+#one_single_button {
     width: 80px;
     height: 80px;
     margin: auto;
