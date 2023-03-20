@@ -23,41 +23,73 @@
     <script>
 
         /////////           THE Grid Table              /////////////
-
         var totalRows = 2;
-        var cellsInRow = 2;
-        var min = 1;
-        var max = 10;
+        var cellsInRow = 3;
 
         function drawTable() {
             // get the reference for the body
             let square = document.getElementById('square_box');
 
             // creates a <table> element
-            let tbl = document.createElement("table");
+            var tbl = document.createElement("table");
 
             // creating rows
             for (var r = 0; r < totalRows; r++) {
-                let row = document.createElement("tr");
+                var row = document.createElement("tr");
 
                 // create cells in row
                 for (var c = 0; c < cellsInRow; c++) {
                     let td = document.createElement("td");
                     let wonderfulButton = document.createElement('button');
+                    text_id = r.toString(10).concat(c);
+                    wonderfulButton.id = text_id;
+
+                    wonderfulButton.innerText = text_id;
+                    // wonderfulButton.className = "everest";
 
 
+                    //STYLE
+                    wonderfulButton.style.height = "80px";
+                    wonderfulButton.style.width = "80px";
+                    wonderfulButton.style.backgroundColor = "aquamarine";
+                    wonderfulButton.style.borderRadius = "12px";
 
-                    let p1 = 5;
-                    let p2 = 7;
 
-                    wonderfulButton.innerText=myFunction(3);
-                    wonderfulButton.addEventListener('click',  function () {
-                        myFunction2(p1, p2);
+                    wonderfulButton.addEventListener('click', function onClick(event) {
+                        const backgroundColor = wonderfulButton.style.backgroundColor;
+
+                        if (backgroundColor === 'salmon') {
+                            wonderfulButton.style.backgroundColor = 'green';
+
+                            // 👇️ optionally change text color
+                            // btn.style.color = 'white';
+                        } else if (backgroundColor === "green") {
+                            wonderfulButton.style.backgroundColor = 'salmon';
+
+                            // 👇️ optionally change text color
+                            // btn.style.color = 'blue';
+                        }
+
+                        else{
+                            wonderfulButton.style.backgroundColor = 'salmon';
+                        }
+
                     });
 
+
+                    // wonderfulButton.addEventListener('click', wonderfulColorChange);
+                    // wonderfulButton.addEventListener('click', drawTable);               // adding more tables, Interesting :)
+
+
                     td.appendChild(wonderfulButton);
+
                     row.appendChild(td);
 
+
+                    // wonderfulButton.innerText=myFunction(3);
+                    // wonderfulButton.addEventListener('click',  function () {
+                    //     myFunction2(p1, p2);
+                    // });
 
 
                 }
@@ -95,9 +127,13 @@
         }
     };
 
-    function myFunction(x, y = 10) {
+    function addNumbers(x=3, y = 10) {
         return x + y;
     }
+
+
+    // const bogdan_button = document.getElementById('wonderfulButton');
+    bogdan_button.addEventListener('click', changeBoxColor );
 
     function wonderfulColorChange() {
 
@@ -110,10 +146,6 @@
         }
     };
 
-
-    function myFunction2(a, b) {
-        return a*b;
-    }
 
 </script>
 
@@ -145,6 +177,18 @@
     font-size: 30px;
     text-align: center;
 }
+
+#wonderfulButton {
+    width: 80px;
+    height: 80px;
+    border: 1px solid gray;
+    border-radius: 12px;
+    margin: auto;
+    font-size: 20px;
+    color: aquamarine;
+}
+
+
 
 #main {
     text-align: center;
