@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form id="frm1">
+    <label>First name: <input type="text" name="fname" value="Bogdan"></label><br>
+    <label>Last name: <input type="text" name="lname" value=6></label><br><br>
+
+</form>
+
+<p>Click "Try it" to display the value of each element in the form.</p>
+
+<button onclick="getValues()">Try it</button>
+
+
+<button onclick="getValues2()">Try it 2</button>
+
+<p id="demo"></p>
+
+<p id="demo2"></p>
+
+<script>
+    function getValues() {
+        var x = document.getElementById("frm1");
+        var text = "";
+        var i;
+        for (i = 0; i < x.length ;i++) {
+            text += x.elements[i].value + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+
+    // Manually get the values from Input form
+
+    function getValues2() {
+        var rows = document.getElementById("frm1")[0].value;
+        var cols = document.getElementById("frm1")[1].value;
+        var text = "" ;
+        text += rows + "<br>" + cols ;
+        document.getElementById("demo").innerHTML = text;
+    }
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -2,32 +2,60 @@
 <html>
 <head>
     <title>Grid Maze Table</title>
-
 <body>
 
-
-<!--<div id="main">-->
-<!--    <h1>Changing square</h1>-->
-<!--    <button id="one_single_button" >Run Baby</button>-->
-<!--    <br><br>-->
-
-<!--</div>-->
-
-<br>
-<h1>Dynamic Box</h1>
-
-<div id="square_box">
+<h1>Create your maze</h1>
 
 
+<div id="main">
+    <h1>Reset Maze</h1>
+    <!--    <button id="reset_maze" type="reset" value="Reset Maze" onclick="clearMaze()">Reset Maze</button>-->
+    <input type="button" value="Reset Maze" id="reset_maze" onclick="clearMaze()">
+    &nbsp; &nbsp; &nbsp;
+
+    <form id="rows_cols" action="maze_grid.html">
+
+        <label>rows: <input type="text" id="rows" name="rows" value="4"></label><br>
+        <label>cols: <input type="text" id="cols" name="cols" value="4"></label><br><br>
+
+    </form>
+
+    <button onclick="getRowsCols(), drawTable() ">Set maze size</button>
+<!--    <button onclick="drawTable()">Draw Maze</button>-->
+
+
+</div>
+
+<div id="maze_grid">
     <script>
 
+        function getRowsCols() {
+            var rows = document.getElementById("rows_cols")[0].value;
+            var cols = document.getElementById("rows_cols")[1].value;
+            // var rows = 4;
+            // var cols = 12;
+            var text = "";
+            // text += "rows = " + rows + "    cols = " + cols;
+            console.log(text);
+            // drawTable(rows, cols);
+            return [rows, cols];
+
+        }
+
         /////////           THE Grid Table              /////////////
-        var totalRows = 26;
-        var cellsInRow = 32;
+
+        // var cellsInRow = getRowsCols()[1];
+        // var [totalRows, cellsInRow] = getRowsCols();
+
+
 
         function drawTable() {
+
+            var [totalRows, cellsInRow] = getRowsCols();
+            console.log("function call inside the draw Table : totalRows = "+ totalRows + "    cellsinRow=  "+cellsInRow );
+
             // get the reference for the body
-            let square = document.getElementById('square_box');
+            let square = document.getElementById('maze_grid');
 
             // creates a <table> element
             var tbl = document.createElement("table");
@@ -39,12 +67,11 @@
                 // create cells in row
                 for (var c = 0; c < cellsInRow; c++) {
                     let td = document.createElement("td");
+
                     let wonderfulButton = document.createElement('button');
                     text_id = r.toString(10).concat(c);
                     wonderfulButton.id = text_id;
                     wonderfulButton.innerText = "#";
-                    // wonderfulButton.className = "everest";
-
 
                     //STYLE
                     wonderfulButton.style.height = "32px";
@@ -52,8 +79,6 @@
                     wonderfulButton.style.backgroundColor = "coral";
                     wonderfulButton.style.borderRadius = "1px";
                     wonderfulButton.style.border = "1px solid gray";
-
-
 
                     wonderfulButton.addEventListener('mouseover', function onClick(event) {
                         const backgroundColor = wonderfulButton.style.backgroundColor;
@@ -69,17 +94,22 @@
 
                     td.appendChild(wonderfulButton);
                     row.appendChild(td);
-
-
-
                 }
                 tbl.appendChild(row); // add the row to the end of the table body
             }
-
             square.appendChild(tbl);            // appends <table> into <square_box>
         }
 
-        window.onload = drawTable;
+        // window.onload = drawTable;
+
+        function clearMaze() {
+            window.location.reload();
+        }
+
+        function refreshPage() {
+            window.location.reload();
+        }
+
 
 
     </script>
@@ -87,87 +117,71 @@
 </div>
 
 
-
 <script>                // JAVASCRIPT
 
-    // SOURCE : https://www.w3schools.com/js/js_htmldom_eventlistener.asp
 
-    const bogdan_button = document.getElementById('one_single_button');
-    bogdan_button.addEventListener('click', changeBoxColor );
 
-    function changeBoxColor() {
-        const backgroundColor = bogdan_button.style.backgroundColor;
-
-        if (backgroundColor == "coral") {
-            bogdan_button.textContent = "X";
-            bogdan_button.style.backgroundColor = "yellow";
-        } else {
-            bogdan_button.style.backgroundColor = "coral";
-            bogdan_button.textContent = "0";
-        }
-    };
-
-    function addNumbers(x=3, y = 10) {
-        return x + y;
-    }
 
 
 </script>
 
 
 <style>                     /* CSS */
-    /* CSS Code */
-    /* Heading */
-    h1 {
-        color: orangered;
-        font-size: 25px;
-        text-align: center;
-        background-color: antiquewhite;
-    }
-
-    h2 {
-        color: aqua;
-        font-size: 25px;
-    }
-
-
-
-/* 3*3 Grid */
-#one_single_button {
-    width: 80px;
-    height: 80px;
-    margin: auto;
-    border: 1px solid gray;
-    border-radius: 6px;
-    font-size: 30px;
+/* CSS Code */
+/* Heading */
+h1 {
+    color: orangered;
+    font-size: 25px;
     text-align: center;
+    background-color: antiquewhite;
+}
+
+h2 {
+    color: aqua;
+    font-size: 25px;
 }
 
 
+/* 3*3 Grid */
+#reset_maze {
+    width: 120px;
+    height: 40px;
+    margin: auto;
 
-#square_box {
-    margin:10px;
-    font-size:1.25em;
+    user-select: none;
+    white-space: pre;
+    font-size: 20px;
+    text-align: center;
+    color: dodgerblue;
+}
+
+#main {
+    text-align: center;
+
+}
+
+#maze_grid {
+    margin: 10px;
+    font-size: 1.25em;
     text-align: center;
 }
 
 table {
-    border-collapse:collapse;
-    border:1px solid #2ea44f;
+    border-collapse: collapse;
+    border: 1px solid #2ea44f;
     margin-left: auto;
     margin-right: auto;
 
 }
 
 td {
-    border:0.5px solid #115698;
-    width:30px;
-    height:30px;
-    text-align:center;
+    border: 0.5px solid #115698;
+    width: 30px;
+    height: 30px;
+    text-align: center;
     color: lightseagreen;
     background-color: lightyellow;
 }
-
 
 
 </style>
